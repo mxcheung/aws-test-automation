@@ -1,0 +1,10 @@
+# Replace 'namespace', 'pod-name', and 'container-name' with your specific values
+NAMESPACE="your-namespace"
+POD_NAME="your-pod-name"
+CONTAINER_NAME="your-container-name"
+
+# Get the access token for authentication
+TOKEN=$(oc whoami --show-token)
+
+# Get the logs using curl
+curl -H "Authorization: Bearer $TOKEN" "https://api.openshift.your-domain.com/api/v1/namespaces/$NAMESPACE/pods/$POD_NAME/log?container=$CONTAINER_NAME"
